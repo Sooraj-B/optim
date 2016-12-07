@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // it was 200, i changed to 100
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
