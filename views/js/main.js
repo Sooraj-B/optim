@@ -466,7 +466,7 @@ for (var i = 2; i < 200; i++) {
 }
 //Defined few of the variables here for resizePizzas()
 container = document.getElementsByClassName("randomPizzaContainer");
-containerLength = randomPizzaContainer.length;
+containerLength = container.length;
 containerOffset = randomPizzas.offsetWidth;
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
