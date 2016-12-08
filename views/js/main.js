@@ -400,7 +400,7 @@ var pizzaElementGenerator = function(i) {
 //defining elements for optimisation
 var pizzaSize = document.getElementById("pizzaSize");
 var containerOffset;
-var container;
+var pizzacontainer;
 var containerLength;
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
@@ -442,7 +442,7 @@ var resizePizzas = function(size) {
           console.log("error");
       }
 
-      var randomPizzas = container;
+      var randomPizzas = pizzacontainer;
       var newWidth = newSizes * containerOffset;
       for (var i = 0; i < containerLength; i++) {
         randomPizzas[i].style.width = newWidth + 'px';
@@ -466,7 +466,7 @@ for (var i = 2; i < 200; i++) {
 }
 //Defined few of the variables here for resizePizzas()
 container = document.getElementsByClassName("randomPizzaContainer");
-containerLength = container.length;
+containerLength = pizzacontainer.length;
 containerOffset = randomPizzas.offsetWidth;
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");
