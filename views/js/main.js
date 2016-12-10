@@ -397,7 +397,7 @@ var pizzaElementGenerator = function(i) {
 
   return pizzaContainer;
 };
-//defining elements for optimisation
+//defined elements for optimisation
 var pizzaSize = document.getElementById("pizzaSize");
 var containerOffset;
 var randomPizzaContainer;
@@ -490,16 +490,22 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+var movers = document.getElementsByClassName("mover");
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // var items = document.querySelectorAll('.mover');
-  var items = document.getElementsByClassName("mover");
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+  var items = movers;
+  var len = items.length;
+  var scr = document.body.scrollTop / 1250;
+  var phase;
+  for (var i = 0; i < 5; i++) {
+    phase = Math.sin((scr) + (i % 5));
+  }
+  // I am not able to write the syntax to replace `left` with `transform`, please suggest me a solution
+  for (var i=0; i< len; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -520,7 +526,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 50; i++) { //changed the number of pizzas to 50
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -528,7 +534,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    //replace querySelector by getElementById
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
