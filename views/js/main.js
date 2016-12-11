@@ -506,6 +506,7 @@ function updatePositions() {
   }
   for (var i=0; i< len; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    // items[i].style.transform = 'translateX(' + 100 * phase + 'px)';
   }
   // I am not able to write the syntax to replace `left` with `transform`, please suggest me a solution
 
@@ -526,7 +527,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 50; i++) { //changed the number of pizzas to 50
+  for (var i = 0; i < 100; i++) { //changed the number of pizzas to 50
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
