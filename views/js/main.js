@@ -504,10 +504,10 @@ function updatePositions() {
   for (var i = 0; i < 5; i++) {
     phase = Math.sin((scr) + (i % 5));
   }
-  // I am not able to write the syntax to replace `left` with `transform`, please suggest me a solution
   for (var i=0; i< len; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
+  // I am not able to write the syntax to replace `left` with `transform`, please suggest me a solution
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
