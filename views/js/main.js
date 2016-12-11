@@ -524,6 +524,7 @@ function updatePositions() {
   for (var i = 0; i < 5; i++) {
     phase[i] = Math.sin((scr) + i);
   }
+  //Used transform property instead of left
   for (var i = 0; i < len; i++) {
     items[i].style.transform = 'translateX(' + 100 * phase[i % 5] + 'px)';
   }
@@ -543,6 +544,7 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
+  //defining variables outside the loop
   var cols = 8;
   var s = 256;
   var rows = Math.round(window.screen.height / s);
